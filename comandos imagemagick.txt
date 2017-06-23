@@ -1,0 +1,5 @@
+**Quitar el fondo constante de la imagen**
+convert 1691.jpg -fill none -fuzz 1% -draw 'matte 0,0 floodfill' -flop  -draw 'matte 0,0 floodfill' -flop me.png
+
+**Cambiar imagen con transparencia a fondo**
+mogrify -alpha Set -draw 'image Dst_Over 0,0 0,0 "bk.jpg"' *.png

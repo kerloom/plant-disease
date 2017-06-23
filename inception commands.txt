@@ -1,0 +1,1 @@
+bazel-bin/tensorflow/examples/image_retraining/retrain --image_dir ~/Documents/workspace/machine-learning/disease/classifier/

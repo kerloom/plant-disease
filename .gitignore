@@ -1,0 +1,6 @@
+classifier
+classifier/*
+*~
+*.pyc
+edit
+edit/*
