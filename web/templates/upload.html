@@ -3,7 +3,7 @@
         <h1>Identificador de enfermedades en maíz</h1>
         <p><strong>Instrucciones:</strong>Subir imagen de la hoja de una planta de maíz como la que se muestra a continuación:<p>
         <img src="{{url_for('static', filename='healthy.jpeg')}}" />
-        <form action = "http://localhost:5001/uploader" method = "POST" 
+        <form action = "/" method = "POST" 
          enctype = "multipart/form-data">
             <input type = "file" name = "file" />
             <input type = "submit"/>
