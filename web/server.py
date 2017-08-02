@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from werkzeug import secure_filename
 import lib.predict as predict
+import subprocess
 
 UPLOAD_FOLDER = 'img/'
 
@@ -18,9 +19,11 @@ def upload_file():
         try:
             f = request.files['file']
             f.save(secure_filename(f.filename))
-            answer = predict.run_inference_on_image(imagePath=secure_filename(f.filename))
+            #answer = predict.run_inference_on_image(imagePath=secure_filename(f.filename))
+            answer = subprocess.check_output(['python', 'lib/predict.py', secure_filename(f.filename)])
             return 'Answer: ' + str(answer)
         except Exception, e:
+            print e
             return 'Error: ' + str(e)
     else:
         return render_template('upload.html')

@@ -35,6 +35,7 @@ For testing through python, change and run this code.
 
 import numpy as np
 import tensorflow as tf
+import sys
 
 imagePathDefault = 'tmp/healthy.jpeg'
 modelFullPath = 'lib/out_graph_no_edit.pb'
@@ -76,11 +77,15 @@ def run_inference_on_image(imagePath=imagePathDefault):
         for node_id in top_k:
             human_string = labels[node_id]
             score = predictions[node_id]
-            print('%s (score = %.5f)' % (human_string, score))
+            print('%s =%.5f | ' % (human_string, score))
 
         answer = labels[top_k[0]]
-        return answer
+    sess.close()
+    del sess
+    return answer
 
 
 if __name__ == '__main__':
-    run_inference_on_image()
+    #Must be run with "python predict.py <img_name>
+    image_file = sys.argv[1]
+    run_inference_on_image(imagePath=image_file)
