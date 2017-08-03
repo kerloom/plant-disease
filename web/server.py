@@ -21,7 +21,15 @@ def upload_file():
             f.save(secure_filename(f.filename))
             #answer = predict.run_inference_on_image(imagePath=secure_filename(f.filename))
             answer = subprocess.check_output(['python', 'lib/predict.py', secure_filename(f.filename)])
-            return 'Answer: ' + str(answer)
+            tmp = answer.split('|')
+            resultados = []
+            for it in tmp:
+                splat = it.split('=')
+                if len(splat) == 2:
+                    nombre = splat[0].title()
+                    prob = '{:.2%}'.format(float(splat[1]))
+                    resultados.append([nombre, prob])
+            return render_template('results.html', resultados=resultados)
         except Exception, e:
             print e
             return 'Error: ' + str(e)

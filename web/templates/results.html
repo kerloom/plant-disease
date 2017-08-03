@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Demo de identificación de enfermedades</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <h3> Resultados </h3>
+      
+      <div class="row">
+        <div class="col m6">
+          <div class="card-panel teal">
+            <span class="white-text"><p><strong>{{resultados[0][0]}}:</strong> {{resultados[0][1]}}</p>
+            </span>
+          </div>
+        </div>
+
+        <div class="col m6">
+          <div class="card-panel teal">
+            <span class="white-text"><p><strong>{{resultados[1][0]}}:</strong> {{resultados[1][1]}}</p>
+            </span>
+          </div>
+        </div>
+
+        <div class="col m6">
+          <div class="card-panel teal">
+            <span class="white-text"><p><strong>{{resultados[2][0]}}:</strong> {{resultados[2][1]}}</p>
+            </span>
+          </div>
+        </div>
+
+        <div class="col m6">
+          <div class="card-panel teal">
+            <span class="white-text"><p><strong>{{resultados[3][0]}}:</strong> {{resultados[3][1]}}</p>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <a class="waves-effect waves-light btn-large">Regresar</a>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        Materialize.updateTextFields();
+      });      
+    </script>
+  </body>
+</html>

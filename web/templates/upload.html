@@ -1,13 +1,59 @@
 <html>
+    <head>
+        <title>Demo de identificación de enfermedades</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    </head>
     <body>
-        <h1>Identificador de enfermedades en maíz</h1>
-        <p><strong>Instrucciones:</strong>Subir imagen de la hoja de una planta de maíz como la que se muestra a continuación:<p>
-        <img src="{{url_for('static', filename='healthy.jpeg')}}" />
-        <form action = "/" method = "POST" 
-         enctype = "multipart/form-data">
-            <input type = "file" name = "file" />
-            <input type = "submit"/>
-        </form>
+        <div class="container">
+            <h2>Identificador de enfermedades en maíz</h2>
+            
+            <div class="row">
+              <div class="col m10">
+                <div class="card horizontal">
+                  <div class="card-image">
+                    <img src="{{url_for('static', filename='healthy.jpeg')}}">
+                  </div>
+                  <div class="card-stacked">
+                    <div class="card-content">
+                      <p><strong>Instrucciones:</strong> Subir imagen de la hoja de una planta de maíz como la que se muestra a la izquierda. El sistema está entrenado para reconocer 4 posibles resultados: Cercospora Leaf Gray Spot, Common Rust, Northern Leaf Blight o planta sana (Healthy).<p>
+                    </div>
+                    <div class="card-action">
+                      <form action = "/" method = "POST" enctype = "multipart/form-data">
+
+                        <div class="row">
+                          <div class="col m8">
+                            <div class="file-field input-field">
+                              <div class="btn">
+                                <span>Seleccionar Imagen</span>
+                                <input type ="file" name ="file" />
+                              </div>
+                              <div class="file-path-wrapper input-field">
+                                <input class="file-path validate" type="text">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col m4">
+                            <input class="waves-effect waves-light btn" type ="submit" value="Subir"/>
+                          </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- end card -->
+              </div>
+            </div>
+
+        </div>
       
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js">
+      </script>
+      <script>
+
+          $(document).ready(function() {
+            Materialize.updateTextFields();
+          });
+        
+      </script>
     </body>
 </html>
